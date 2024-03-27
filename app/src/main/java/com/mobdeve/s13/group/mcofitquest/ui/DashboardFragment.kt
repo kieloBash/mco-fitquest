@@ -1,11 +1,17 @@
 package com.mobdeve.s13.group.mcofitquest.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.mobdeve.s13.group.mcofitquest.MyActivitiesAdapter
 import com.mobdeve.s13.group.mcofitquest.R
+import com.mobdeve.s13.group.mcofitquest.WorkoutActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +42,17 @@ class DashboardFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val blueSection:LinearLayout = view.findViewById(R.id.blue_section)
+        blueSection.setOnClickListener {
+            // Use requireActivity() to get the activity context
+            val intent = Intent(requireActivity(), WorkoutActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     companion object {
