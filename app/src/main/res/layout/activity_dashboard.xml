@@ -10,7 +10,7 @@
         android:id="@+id/main_frame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/main_bottom_navigations"
+        app:layout_constraintBottom_toBottomOf="@+id/main_bottom_navigations"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,5 +25,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav" />
+        app:menu="@menu/bottom_nav"
+        app:elevation="0dp"
+        app:itemRippleColor="@color/white"
+        app:itemIconTint="@color/icons_color"
+        app:itemTextColor="@color/icons_text_color"
+        android:background="@drawable/transparent_rectangle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
