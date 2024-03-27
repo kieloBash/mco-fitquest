@@ -6,13 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".WorkoutActivity">
 
-    <TextView
-        android:id="@+id/Workout"
+    <Button
+        android:id="@+id/workoutactivity_btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Workout"
+        android:text="Start Workout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.225" />
+
+    <TextView
+        android:id="@+id/workoutactivity_tv_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="day"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/workoutactivity_rv_programs"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="409dp"
+        android:layout_height="71dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/workoutactivity_btn_start"
+        tools:layout_editor_absoluteX="1dp">
+
+        <TextView
+            android:id="@+id/workoutactivity_tv_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2780 kcal" />
+
+        <TextView
+            android:id="@+id/workoutactivity_tv_minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="23 mins." />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
