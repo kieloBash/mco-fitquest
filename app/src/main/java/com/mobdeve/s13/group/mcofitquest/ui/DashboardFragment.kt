@@ -28,6 +28,9 @@ class DashboardFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -51,20 +54,19 @@ class DashboardFragment : Fragment() {
         blueSection.setOnClickListener {
             // Use requireActivity() to get the activity context
             val intent = Intent(requireActivity(), WorkoutActivity::class.java)
+            intent.putExtra(dayKey,"1")
+            intent.putExtra(caloriesKey,"2780")
+            intent.putExtra(minutesKey,"23")
             startActivity(intent)
         }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DashboardFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+        // These are static keys that you can use for the passing data around.
+        const val dayKey : String = "DAY_KEY"
+        const val caloriesKey : String = "CALORIES_KEY"
+        const val minutesKey : String = "MINUTES_KEY"
+
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             DashboardFragment().apply {
