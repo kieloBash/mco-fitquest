@@ -55,6 +55,7 @@
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/gradient_box"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

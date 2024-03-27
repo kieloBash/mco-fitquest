@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s13.group.mcofitquest.MyActivitiesAdapter
@@ -50,8 +51,8 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val blueSection:LinearLayout = view.findViewById(R.id.blue_section)
-        blueSection.setOnClickListener {
+        val gradientBox: ConstraintLayout = view.findViewById(R.id.gradient_box)
+        gradientBox.setOnClickListener {
             // Use requireActivity() to get the activity context
             val intent = Intent(requireActivity(), WorkoutActivity::class.java)
             intent.putExtra(dayKey,"1")
