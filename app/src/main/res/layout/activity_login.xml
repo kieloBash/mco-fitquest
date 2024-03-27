@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imv_bg_onboarding"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="bg"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fitquest_bg" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:text="Let's Get You started"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imv_bg_onboarding" />
+
+    <TextView
+        android:id="@+id/tv_p"
+        android:layout_width="311dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:layout_marginTop="-18dp"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="Fill up the necessary details"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <!-- Blue Rectangular Section -->
+    <LinearLayout
+        android:id="@+id/blue_section"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="231dp"> <!-- I cant make it rounded -->
+
+        <!-- First Question -->
+
+        <!-- Answer for First Question -->
+
+        <!-- Second Question -->
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="0dp"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginTop="225dp"
+            android:text="Name"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/nameEtv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Name"
+            android:textColorHint="#FFFFFF"
+            />
+
+        <!-- Answer for Second Question -->
+        <TextView
+            android:id="@+id/email_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Email"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/emailEtv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Email@email.com"
+            android:textColorHint="#FFFFFF" />
+
+        <!-- Answer for Second Question -->
+        <TextView
+            android:id="@+id/password_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Password"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/passwordEtv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="password"
+            android:textColorHint="#FFFFFF" />
+
+        <!-- Confirm Button -->
+        <Button
+            android:id="@+id/btn_getStarted"
+            android:layout_width="262dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="60dp"
+            android:backgroundTint="@android:color/white"
+            android:elevation="10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center_horizontal"
+            android:outlineAmbientShadowColor="@android:color/darker_gray"
+            android:outlineSpotShadowColor="@android:color/darker_gray"
+            android:text="Confirm"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <!-- add onclick listener -->
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
