@@ -4,182 +4,215 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DashboardFragment">
+    tools:context=".ui.DashboardFragment"
+    android:background="@drawable/gradient_background">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/header"
-            android:layout_width="match_parent"
+            android:id="@+id/text_Linearlayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/toolbar_title"
+                android:id="@+id/track_Tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Dashboard"
-                android:textColor="@color/blue"
-                android:textSize="50sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="350dp"
-            android:layout_height="590dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header"
-            tools:ignore="MissingConstraints">
-
-            <TextView
-                android:id="@+id/header_greeting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-6dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Greetings!"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/header_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-6dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Let's start working out now!"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="@+id/header_greeting" />
-
-            <LinearLayout
-                android:id="@+id/blue_section"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rectangle"
-                android:gravity="bottom"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="231dp">
-
-                <ImageView
-                    android:id="@+id/button_image"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="0dp"
-                    android:padding="0dp"
-                    app:srcCompat="@drawable/fitquest_bg" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="@id/button_image"
-                    app:layout_constraintTop_toTopOf="@id/button_image">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="0dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="hello"
-                        android:textColor="@color/white"
-                        android:textSize="30sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:fontFamily="@font/poppins_medium"
-                        android:padding="0dp"
-                        android:text="8 min. duration"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="0dp"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="12 workouts"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Your Progress"
+                android:text="Track"
+                android:textSize="30sp"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
-
-            <LinearLayout
-                android:id="@+id/progress_section"
-                android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_gravity="left"
-                android:background="@drawable/rectangle"
-                android:backgroundTint="@color/white"
-                android:gravity="bottom"
-                android:orientation="vertical"
-                android:padding="0dp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="231dp">
-
-                <TextView
-                    android:id="@+id/percent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|top"
-                    android:layout_marginTop="0dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="6%"
-                    android:textColor="@color/text_main"
-                    android:textSize="70sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/text_motivation"
-                    android:layout_width="113dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="top"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:gravity="top|center"
-                    android:padding="0dp"
-                    android:text="Youre almost there!"
-                    android:textColor="@color/text_main"
-                    android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/percent" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></LinearLayout>
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:padding="0dp"/>
+            <TextView
+                android:id="@+id/yourfitness_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Fitness"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:padding="0dp"/>
+            <TextView
+                android:id="@+id/Quest_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quest"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:padding="0dp"/>
 
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/gradient_horizontal"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Muscle Building"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Full Body"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="@+id/textView1"
+                app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Day 15"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                android:layout_marginBottom="10dp"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:src="@drawable/fitquest_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/your_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/activity_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Activities"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="20dp"/>
+            <TextView
+                android:id="@+id/today_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_calorie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calories"
+                android:textColor="#929493"
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_calorie_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123 kcal"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="20dp"
+                />
+
+            <TextView
+                android:id="@+id/mins_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minutes"
+                android:textColor="#929493"
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:id="@+id/mins_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 mins."
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="20dp"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/viewAll_btn"
+            android:layout_width="262dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="60dp"
+            android:backgroundTint="#929493"
+            android:elevation="10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center_horizontal"
+            android:outlineAmbientShadowColor="@android:color/darker_gray"
+            android:outlineSpotShadowColor="@android:color/darker_gray"
+            android:text="View All"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
 
 
 </FrameLayout>
