@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ActivitiesFragment">
+    tools:context=".ui.ActivitiesFragment"
+    android:background="@drawable/gradient_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +29,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="My Activities"
-                android:textColor="@color/blue"
+                android:textColor="@color/white"
                 android:textSize="50sp" />
         </LinearLayout>
 

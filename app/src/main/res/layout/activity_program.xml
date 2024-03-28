@@ -28,29 +28,34 @@
             <Button
                 android:id="@+id/program_activity_btn_prev"
                 android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
-                android:text="Prev" />
+                android:background="@drawable/baseline_arrow_circle_left_24"
+                app:backgroundTint="@null" />
+
 
             <Button
                 android:id="@+id/program_activity_btn_play"
                 android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginHorizontal="10dp"
-                android:text="Play" />
+                android:background="@drawable/baseline_play_circle_filled_24"
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/program_activity_btn_next"
                 android:layout_gravity="center"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
-                android:text="Next" />
+                android:background="@drawable/baseline_arrow_circle_right_24"
+                app:backgroundTint="@null" />
         </LinearLayout>
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,16 +20,18 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:background="@drawable/rectangle_item">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/img"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/pic2" />
+                app:srcCompat="@drawable/pic2"
+                app:shapeAppearanceOverlay="@style/RoundedCornersImageView" />
 
             <LinearLayout
                 android:layout_width="160dp"
@@ -45,6 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/white"
                     android:text="TextView"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -53,6 +56,8 @@
                     android:id="@+id/tv_reps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_medium"
                     android:layout_weight="1"
                     android:text="TextView" />
             </LinearLayout>
@@ -79,6 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/white"
                     android:text="TextView" />
             </LinearLayout>
 
