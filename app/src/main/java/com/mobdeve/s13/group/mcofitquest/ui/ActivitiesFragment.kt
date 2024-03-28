@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s13.group.mcofitquest.DataHelper
 import com.mobdeve.s13.group.mcofitquest.MyActivitiesAdapter
 import com.mobdeve.s13.group.mcofitquest.R
+import com.mobdeve.s13.group.mcofitquest.SharedViewModel
 import com.mobdeve.s13.group.mcofitquest.models.Activity
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,7 +29,7 @@ class ActivitiesFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private val activities: ArrayList<Activity> = DataHelper.initializeMyActivitiesData()
-    private lateinit var rv: RecyclerView
+    private lateinit var sharedViewModel: SharedViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +50,15 @@ class ActivitiesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val activitiesFetched = ArrayList<Activity>()
+
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        sharedViewModel.userDetails.observe(viewLifecycleOwner, { user ->
+            // Use the userDetails here
+            for(a in user.history){
+                activitiesFetched.add(Activity(a.day,a.totalCalories,a.totalCalories,0))
+            }
+        })
 
         // Initialize the RecyclerView
         val recyclerView: RecyclerView = view.findViewById(R.id.my_activities_rv)
@@ -55,8 +66,9 @@ class ActivitiesFragment : Fragment() {
         // Set the LayoutManager
         recyclerView.layoutManager = LinearLayoutManager(context)
 
+
         // Initialize your adapter
-        val adapter = MyActivitiesAdapter(activities) // Assuming activities is your data list
+        val adapter = MyActivitiesAdapter(activitiesFetched) // Assuming activities is your data list
 
         // Set the Adapter
         recyclerView.adapter = adapter
