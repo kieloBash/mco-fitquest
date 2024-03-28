@@ -52,7 +52,7 @@ class DashboardActivity : AppCompatActivity() {
     }
 
 
-    private fun fetchUserDetails() {
+    fun fetchUserDetails() {
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             val userId = user.uid

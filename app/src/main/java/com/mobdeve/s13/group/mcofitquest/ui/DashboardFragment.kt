@@ -54,6 +54,10 @@ class DashboardFragment : Fragment() {
     private val binding get() = _binding!!
 
 
+    /* CONSTANTS */
+    private lateinit var STARTINGPLAN : DailyPlan
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -71,9 +75,17 @@ class DashboardFragment : Fragment() {
         firebaseRefDaily = FirebaseDatabase.getInstance().getReference("dailyplan")
         firebaseRefUser = FirebaseDatabase.getInstance().getReference("user")
 
-        binding.viewAllBtn.setOnClickListener {
-            saveData()
-        }
+        STARTINGPLAN = DailyPlan(firebaseRefDaily.push().key!!,1,2233,23, arrayListOf(Workout(
+            id = firebaseRefWorkout.push().key!!,
+            name = "3/4 sit-up",
+            gifUrl = "https://v2.exercisedb.io/image/tqvM4EN8Z-P-Dc",
+            bodyPart = "waist"
+        ),Workout(
+            id = firebaseRefWorkout.push().key!!,
+            name = "all fours squad stretch",
+            gifUrl = "https://v2.exercisedb.io/image/U--ekfkmbRiabZ",
+            bodyPart = "upper legs"
+        )),"Full Body", "Muscle Building", false)
 
         return binding.root
     }
@@ -218,10 +230,18 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-        sharedViewModel.userDetails.observe(viewLifecycleOwner, { user ->
-            // Use the userDetails here
+
+        sharedViewModel.userDetails.observe(viewLifecycleOwner) { user ->
             updateTextView(user)
-        })
+        }
+
+        binding.viewAllBtn.setOnClickListener {
+            sharedViewModel.userDetails.value?.let { user ->
+            } ?: run {
+                // This block will be executed if userDetails is null.
+                saveUserDetails(STARTINGPLAN)
+            }
+        }
 
         val gradientBox: ConstraintLayout = view.findViewById(R.id.gradient_box)
         gradientBox.setOnClickListener {
