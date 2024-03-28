@@ -42,7 +42,7 @@ class DataHelper {
                     Program(
                         workoutArray[programId][i],
                         repsArray[programId][i],
-                        0
+                        0, ""
                     )
                 )
             }

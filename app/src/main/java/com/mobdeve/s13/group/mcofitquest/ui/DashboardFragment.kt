@@ -52,7 +52,7 @@ class DashboardFragment : Fragment() {
 
     private var _binding : FragmentDashboardBinding? = null
     private val binding get() = _binding!!
-
+    private val workoutList = ArrayList<Workout>()
 
     /* CONSTANTS */
     private lateinit var STARTINGPLAN : DailyPlan
@@ -75,17 +75,29 @@ class DashboardFragment : Fragment() {
         firebaseRefDaily = FirebaseDatabase.getInstance().getReference("dailyplan")
         firebaseRefUser = FirebaseDatabase.getInstance().getReference("user")
 
-        STARTINGPLAN = DailyPlan(firebaseRefDaily.push().key!!,1,2233,23, arrayListOf(Workout(
-            id = firebaseRefWorkout.push().key!!,
-            name = "3/4 sit-up",
-            gifUrl = "https://v2.exercisedb.io/image/tqvM4EN8Z-P-Dc",
-            bodyPart = "waist"
-        ),Workout(
-            id = firebaseRefWorkout.push().key!!,
-            name = "all fours squad stretch",
-            gifUrl = "https://v2.exercisedb.io/image/U--ekfkmbRiabZ",
-            bodyPart = "upper legs"
-        )),"Full Body", "Muscle Building", false)
+        // Add listener for data changes
+        firebaseRefWorkout.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Clear the list before adding new data to avoid duplicates
+                workoutList.clear()
+
+                // Process the data
+                for (workoutSnapshot in dataSnapshot.children) {
+                    val workout = workoutSnapshot.getValue(Workout::class.java)
+                    // Do something with the fetched data (e.g., update UI)
+                        // Update UI with workout data
+                    workout?.let {
+                        workoutList.add(it)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+
+        STARTINGPLAN = DailyPlan(firebaseRefDaily.push().key!!,1,2233,23, workoutList,"Full Body", "Muscle Building", false)
 
         return binding.root
     }
@@ -200,7 +212,7 @@ class DashboardFragment : Fragment() {
 
         for (workout in w) {
             // Save the workout to Firebase
-            firebaseRefWorkout.child(workout.id!!).setValue(workout)
+            firebaseRefWorkout.child(firebaseRefWorkout.push().key!!).setValue(workout)
                 .addOnCompleteListener {
                     Toast.makeText(context, "Data stored successfully", Toast.LENGTH_SHORT).show()
                 }

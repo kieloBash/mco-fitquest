@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s13.group.mcofitquest.models.Activity
 import com.mobdeve.s13.group.mcofitquest.models.Program
+import com.bumptech.glide.Glide
 
 class ProgramsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     // In our item layout, we need two references -- an ImageView and a TextView. Please note that
