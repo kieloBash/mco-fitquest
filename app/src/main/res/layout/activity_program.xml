@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".ProgramActivity">
 
     <LinearLayout
@@ -32,7 +33,7 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:background="@drawable/baseline_arrow_circle_left_24"
-                app:backgroundTint="@null" />
+                app:backgroundTint="#d9d4d4" />
 
 
             <Button
@@ -43,7 +44,7 @@
                 android:layout_weight="1"
                 android:layout_marginHorizontal="10dp"
                 android:background="@drawable/baseline_play_circle_filled_24"
-                app:backgroundTint="@null" />
+                app:backgroundTint="#d9d4d4" />
 
             <Button
                 android:id="@+id/program_activity_btn_next"
@@ -52,7 +53,7 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:background="@drawable/baseline_arrow_circle_right_24"
-                app:backgroundTint="@null" />
+                app:backgroundTint="#d9d4d4" />
         </LinearLayout>
 
 
