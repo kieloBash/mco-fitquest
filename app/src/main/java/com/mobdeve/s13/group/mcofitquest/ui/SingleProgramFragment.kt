@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.mobdeve.s13.group.mcofitquest.R
 import android.widget.ImageView
 import com.mobdeve.s13.group.mcofitquest.models.Program
+import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,8 +57,38 @@ class SingleProgramFragment : Fragment() {
 
 
 //        Glide.with(this).load(programList).into(imageView)
-        Glide.with(this).load("https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif").into(imageView)
+        Glide.with(this).load("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2ptcGxwemduOWgzYTV0M3dlOWN0OGZzemVqZXoxcTEwbTY5aGtsYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3HFcLK4IXKoviqvwve/giphy.gif").into(imageView)
 
+        // Generate a random number between 0 and 100
+        val randomNumber = Random.nextInt(11)
+
+        // Print the random number
+        println("Random Number: $randomNumber")
+        if(randomNumber < 1)
+            Glide.with(this).load("https://v2.exercisedb.io/image/wXqlsc9kIGx5ne").into(imageView)
+        else if(randomNumber < 2)
+            Glide.with(this).load("https://v2.exercisedb.io/image/3pbblmgUIOylnB").into(imageView)
+        else if(randomNumber < 3)
+            Glide.with(this).load("https://v2.exercisedb.io/image/CrBi8dSwHw1mD9").into(imageView)
+        else if (randomNumber < 4) {
+            Glide.with(this).load("https://v2.exercisedb.io/image/5joMBXB0l-BaHL").into(imageView)
+        } else if (randomNumber < 5) {
+            Glide.with(this).load("https://v2.exercisedb.io/image/xdmcV41ewoMTyF").into(imageView)
+        } else if (randomNumber < 6) {
+            Glide.with(this).load("https://v2.exercisedb.io/image/yHtTDXXO0XnXMc").into(imageView)
+        } else if (randomNumber < 7) {
+            Glide.with(this).load("https://v2.exercisedb.io/image/xmsEvA3z4XBuoI").into(imageView)
+        } else if (randomNumber < 8) {
+            Glide.with(this).load("https://v2.exercisedb.io/image/uFViYVEk7y0zVu").into(imageView)
+        } else if (randomNumber < 9) {
+            Glide.with(this).load("https://v2.exercisedb.io/image/ln0gZbbPXfWxSV").into(imageView)
+        } else if (randomNumber < 10) {
+            Glide.with(this).load("https://v2.exercisedb.io/image/NeqVgcFGJvWYXo").into(imageView)
+        } else if (randomNumber < 11) {
+            Glide.with(this).load("https://v2.exercisedb.io/image/91ppez-6UDKsNU").into(imageView)
+        } else if (randomNumber < 12) {
+            Glide.with(this).load("https://v2.exercisedb.io/image/VtAUC-OKXunYOM").into(imageView)
+        }
 
         return view
     }
