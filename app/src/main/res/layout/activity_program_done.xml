@@ -4,25 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProgramDoneActivity">
+    tools:context=".ProgramDoneActivity"
+    android:background="@drawable/gradient_background">
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="168dp"
+        android:src="@drawable/gad"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        tools:layout_editor_absoluteX="5dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Congratulations"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Congratulations!"
+        android:textColor="#d9d4d4"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.626" />
+
+    <TextView
+        android:id="@+id/textView_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="You have completed"
+        android:textColor="#d9d4d4"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.677" />
+
+    <TextView
+        android:id="@+id/day_done_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="textview"
+        android:textColor="#d9d4d4"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/greeting_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_1" />
+
+    <TextView
+        android:id="@+id/greeting_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="have a day of full energy!"
+        android:textColor="#d9d4d4"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/program_done_btn_done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/day_done_tv" />
 
     <Button
         android:id="@+id/program_done_btn_done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="done"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="160dp"
+        android:backgroundTint="#474744"
+        android:elevation="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:outlineAmbientShadowColor="@android:color/darker_gray"
+        android:outlineSpotShadowColor="@android:color/darker_gray"
+        android:text="DONE"
+        android:textColor="#d9d4d4"
+        android:textSize="30sp"
+        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

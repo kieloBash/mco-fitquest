@@ -6,14 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".WorkoutActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="244dp"
+        app:srcCompat="@drawable/fitquest_bg"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="-28dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/type_workout_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Arms"
+        android:textColor="#50D7BE"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.157" />
+
     <Button
         android:id="@+id/workoutactivity_btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#50D7BE"
+        android:padding="20dp"
         android:text="Start Workout"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.225" />
@@ -22,7 +49,9 @@
         android:id="@+id/workoutactivity_tv_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="day"
+        android:text="Day"
+        android:textColor="@color/black"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
@@ -30,6 +59,67 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
 
+    <LinearLayout
+        android:id="@+id/linearlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="#1c1b1b"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                android:id="@+id/Cals_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="20sp"
+                android:text="Calories."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/workoutactivity_tv_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="#d9d4d4"
+                android:textSize="30sp"
+                android:text="2780 kcal"
+                app:layout_constraintStart_toStartOf="@+id/Cals_tv"
+                app:layout_constraintTop_toBottomOf="@+id/Cals_tv" />
+
+            <TextView
+                android:id="@+id/minutes_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="20sp"
+                android:text="Minutes."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/workoutactivity_tv_minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="#d9d4d4"
+                android:text="23 mins."
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="@+id/minutes_tv"
+                app:layout_constraintTop_toBottomOf="@+id/minutes_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/workoutactivity_rv_programs"
         android:layout_width="wrap_content"
@@ -37,29 +127,7 @@
         android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="409dp"
-        android:layout_height="71dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/workoutactivity_btn_start"
-        tools:layout_editor_absoluteX="1dp">
 
-        <TextView
-            android:id="@+id/workoutactivity_tv_calories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2780 kcal" />
-
-        <TextView
-            android:id="@+id/workoutactivity_tv_minutes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="23 mins." />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
