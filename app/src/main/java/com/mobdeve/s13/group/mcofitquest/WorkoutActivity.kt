@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.database.DataSnapshot
@@ -22,11 +25,13 @@ import com.mobdeve.s13.group.mcofitquest.models.Program
 import com.mobdeve.s13.group.mcofitquest.models.User
 import com.mobdeve.s13.group.mcofitquest.ui.DashboardFragment
 import java.util.ArrayList
+import kotlin.random.Random
 
 
 class WorkoutActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWorkoutBinding
 
+    private lateinit var tvImage: ImageView
     private lateinit var tvTarget: TextView
     private lateinit var tvDay: TextView
     private lateinit var tvCalories: TextView
@@ -46,6 +51,32 @@ class WorkoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWorkoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        tvImage = findViewById(R.id.imageView2)
+
+        val imageUrls = arrayOf(
+            "https://v2.exercisedb.io/image/wXqlsc9kIGx5ne",
+            "https://v2.exercisedb.io/image/3pbblmgUIOylnB",
+            "https://v2.exercisedb.io/image/CrBi8dSwHw1mD9",
+            "https://v2.exercisedb.io/image/5joMBXB0l-BaHL",
+            "https://v2.exercisedb.io/image/xdmcV41ewoMTyF",
+            "https://v2.exercisedb.io/image/yHtTDXXO0XnXMc",
+            "https://v2.exercisedb.io/image/xmsEvA3z4XBuoI",
+            "https://v2.exercisedb.io/image/uFViYVEk7y0zVu",
+            "https://v2.exercisedb.io/image/ln0gZbbPXfWxSV",
+            "https://v2.exercisedb.io/image/NeqVgcFGJvWYXo",
+            "https://v2.exercisedb.io/image/91ppez-6UDKsNU",
+            "https://v2.exercisedb.io/image/VtAUC-OKXunYOM"
+        )
+
+        // Generate a random number between 0 and 10
+        val randomNumber = Random.nextInt(11)
+
+        // Load the image into the ImageView using Glide
+        Glide.with(this)
+            .load(imageUrls[randomNumber])
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(tvImage)
 
         tvTarget = findViewById(R.id.type_workout_tv)
         var targetString :String = getIntent().getStringExtra(DashboardFragment.targetKey)!!
