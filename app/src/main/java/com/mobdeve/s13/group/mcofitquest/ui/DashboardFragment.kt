@@ -115,14 +115,15 @@ class DashboardFragment : Fragment() {
             goalView.text = "${userDetails.currentPlan!!.goal}"
             targetView.text = "${userDetails.currentPlan!!.target}"
 
-            if(userDetails.currentPlan!!.done == true){
-                calorieView.text = "${userDetails.currentPlan!!.totalCalories} kcal."
-                minsView.text = "${userDetails.currentPlan!!.totalMinutes} mins."
-            }else{
-                calorieView.text = "0 kcal."
-                minsView.text = "0 mins."
-            }
+            var countTotalCalories = 0
+            var countTotalMinutes = 0
 
+            for(h in userDetails.history){
+                countTotalCalories += h.totalCalories!!
+                countTotalMinutes += h.totalMinutes!!
+            }
+            calorieView.text = "${countTotalCalories} kcal."
+            minsView.text = "${countTotalMinutes} mins."
         }
     }
 
