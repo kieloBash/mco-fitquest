@@ -21,5 +21,12 @@ class ProgramDoneActivity : AppCompatActivity() {
             intent.putExtra(DashboardFragment.doneKey,true)
             startActivity(intent)
         }
+
+        var dayString :String = getIntent().getStringExtra(DashboardFragment.dayKey)!!
+        if(dayString!=null){
+            binding.dayDoneTv.text = "Day ${dayString}"
+        }
+
+
     }
 }

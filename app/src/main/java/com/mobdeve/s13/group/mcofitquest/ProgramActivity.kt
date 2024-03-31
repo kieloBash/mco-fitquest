@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.mobdeve.s13.group.mcofitquest.databinding.ActivityDashboardBinding
 import com.mobdeve.s13.group.mcofitquest.databinding.ActivityProgramBinding
 import com.mobdeve.s13.group.mcofitquest.models.Program
+import com.mobdeve.s13.group.mcofitquest.ui.DashboardFragment
 import com.mobdeve.s13.group.mcofitquest.ui.SingleProgramFragment
 
 class ProgramActivity : AppCompatActivity() {
@@ -35,6 +36,9 @@ class ProgramActivity : AppCompatActivity() {
             } else {
                 // Start the new activity
                 val intent = Intent(this, ProgramDoneActivity::class.java)
+
+                var dayString :String = getIntent().getStringExtra(DashboardFragment.dayKey)!!
+                intent.putExtra(DashboardFragment.dayKey,dayString)
                 startActivity(intent)
                 finish()
             }

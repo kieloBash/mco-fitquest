@@ -79,6 +79,7 @@ class WorkoutActivity : AppCompatActivity() {
             }
 
             intent.putParcelableArrayListExtra("programListKey", data)
+            intent.putExtra(DashboardFragment.dayKey, dayString)
             startActivity(intent)
             finish()
         }

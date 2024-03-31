@@ -80,6 +80,10 @@ class DashboardActivity : AppCompatActivity() {
                         userRef.updateChildren(newData)
                             .addOnSuccessListener {
                                 Log.i("updateCurrentPlan", "User updated successfully")
+
+                                userDetails = User(userDetails.id!!, newHistory, nextPlan)
+                                sharedViewModel.setUserDetails(userDetails)
+
                                 isDone = false
                             }
                             .addOnFailureListener { e ->
