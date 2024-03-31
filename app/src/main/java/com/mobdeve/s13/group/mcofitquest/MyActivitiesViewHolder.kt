@@ -4,7 +4,10 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.mobdeve.s13.group.mcofitquest.models.Activity
+import kotlin.random.Random
 
 class MyActivitiesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     // In our item layout, we need two references -- an ImageView and a TextView. Please note that
@@ -17,6 +20,52 @@ class MyActivitiesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) 
 
     // This is our own method that accepts a Character object and sets our views' info accordingly.
     fun bindData(d: Activity) {
+        // Generate a random number between 0 and 11
+        val randomNumber = Random.nextInt(11)
+
+        // Print the random number
+        println("Random Number: $randomNumber")
+        if(randomNumber == 0) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/wXqlsc9kIGx5ne")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        }
+        else if(randomNumber == 1) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/3pbblmgUIOylnB")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        }
+        else if(randomNumber == 2) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/CrBi8dSwHw1mD9")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        }
+        else if (randomNumber == 3) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/5joMBXB0l-BaHL")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        } else if (randomNumber == 4) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/xdmcV41ewoMTyF")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        } else if (randomNumber == 5) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/yHtTDXXO0XnXMc")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        } else if (randomNumber == 6) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/xmsEvA3z4XBuoI")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        } else if (randomNumber == 7) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/uFViYVEk7y0zVu")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        } else if (randomNumber == 8) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/ln0gZbbPXfWxSV")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        } else if (randomNumber == 9) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/NeqVgcFGJvWYXo")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        } else if (randomNumber == 10) {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/91ppez-6UDKsNU")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        } else  {
+            Glide.with(itemView).load("https://v2.exercisedb.io/image/VtAUC-OKXunYOM")
+                .transition(DrawableTransitionOptions.withCrossFade()).into(img)
+        }
+
         img.setImageResource(d.workoutImageId!!)
         day.text = "Day ${d.dayId}"
         calories.text = "${d.totalCalories} kcal."
