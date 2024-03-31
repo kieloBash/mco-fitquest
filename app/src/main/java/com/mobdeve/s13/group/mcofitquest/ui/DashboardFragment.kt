@@ -173,8 +173,6 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
                     if(snapshot.exists()){
                         for(userSnap in snapshot.children){
                             val userData = userSnap.getValue(User::class.java)
-                            Log.i("Thisuser", userData?.id.toString())
-                            Log.i("Thiscurrentuser", "$currentUser")
                             if(userData?.id == currentUser){
                                 Log.i("textting", "I AM HEREsi")
                                 userCurrent = userData
@@ -195,15 +193,18 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             // Use requireActivity() to get the activity context
             val intent = Intent(requireActivity(), WorkoutActivity::class.java)
 
-            Log.i("textting", "I AM HERE2")
+            Log.i("textting", "$userDets.currentPlan")
 
-            val reps = intArrayOf(10,10,10,10,10,10,10)
+            var reps = 10
             val data = ArrayList<Program>()
+            if((userDets!!.currentPlan?.day!! % 7) == 0){
+                reps = reps + 2
+            }
             for(i in userDets!!.currentPlan?.workouts?.indices!!){
                 data.add(
                     Program(
                         userDets!!.currentPlan!!.workouts[i].name!!,
-                        reps[i],
+                        reps,
                         0, userDets!!.currentPlan!!.workouts[i].gifUrl
                     )
                 )

@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.mobdeve.s13.group.mcofitquest.databinding.ActivityDashboardBinding
 import com.mobdeve.s13.group.mcofitquest.databinding.ActivityProgramDoneBinding
 import com.mobdeve.s13.group.mcofitquest.ui.DashboardFragment
+import com.mobdeve.s13.group.mcofitquest.ui.SingleProgramFragment
 
 class ProgramDoneActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProgramDoneBinding

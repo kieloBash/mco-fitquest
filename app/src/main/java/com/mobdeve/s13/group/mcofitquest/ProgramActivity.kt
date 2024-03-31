@@ -46,23 +46,30 @@ class ProgramActivity : AppCompatActivity() {
                 displayFragment()
             }
         }
+
     }
 
-    private fun displayFragment(){
-
+    private fun displayFragment() {
         val singleProgramFragment = SingleProgramFragment()
-        val bundle = Bundle()
-        bundle.putString("WORKOUT_KEY", data?.get(workoutIndex)?.workout)
-        bundle.putString("REP_KEY", data?.get(workoutIndex)?.reps.toString())
+
+        val bundle = Bundle().apply {
+            putString("WORKOUT_KEY", data?.get(workoutIndex)?.workout)
+            putString("REP_KEY", data?.get(workoutIndex)?.reps.toString())
+            // Pass the received list to the fragment
+            Log.i("PROGRAMHELLO", data?.get(workoutIndex)?.workoutImageUrl.toString())
+            putString("PROGRAM_URL_KEY", data.get(workoutIndex).workoutImageUrl)
+        }
+
         singleProgramFragment.arguments = bundle
         replaceFragment(singleProgramFragment)
     }
 
-    private fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.program_activity_frame,fragment)
+        fragmentTransaction.replace(R.id.program_activity_frame, fragment)
         fragmentTransaction.commit()
     }
+
 
 }

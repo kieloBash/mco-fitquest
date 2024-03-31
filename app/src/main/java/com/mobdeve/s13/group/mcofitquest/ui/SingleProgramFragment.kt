@@ -1,6 +1,7 @@
 package com.mobdeve.s13.group.mcofitquest.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,16 +10,18 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.mobdeve.s13.group.mcofitquest.R
 import android.widget.ImageView
+import com.mobdeve.s13.group.mcofitquest.models.Program
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "WORKOUT_KEY"
 private const val ARG_PARAM2 = "REP_KEY"
-
+private const val ARG_PARAM3 = "PROGRAM_URL_KEY"
 class SingleProgramFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var workoutString: String? = null
     private var repString: String? = null
+    private var programList: String? = null
 
     private lateinit var tvWorkout: TextView
     private lateinit var tvRep: TextView
@@ -28,7 +31,9 @@ class SingleProgramFragment : Fragment() {
         arguments?.let {
             workoutString = it.getString(ARG_PARAM1)
             repString = it.getString(ARG_PARAM2)
+            programList = it.getString(ARG_PARAM3)
         }
+
     }
 
 
@@ -48,8 +53,13 @@ class SingleProgramFragment : Fragment() {
         }
 
         val imageView = view.findViewById<ImageView>(R.id.single_img_workout)
+
+
+//        Glide.with(this).load(programList).into(imageView)
         Glide.with(this).load("https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif").into(imageView)
+
 
         return view
     }
+
 }
