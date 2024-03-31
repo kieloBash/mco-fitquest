@@ -80,6 +80,7 @@ class WorkoutActivity : AppCompatActivity() {
 
             intent.putParcelableArrayListExtra("programListKey", data)
             startActivity(intent)
+            finish()
         }
 
         // Initialize the RecyclerView

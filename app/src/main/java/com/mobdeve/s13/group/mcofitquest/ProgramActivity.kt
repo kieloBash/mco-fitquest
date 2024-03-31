@@ -36,6 +36,7 @@ class ProgramActivity : AppCompatActivity() {
                 // Start the new activity
                 val intent = Intent(this, ProgramDoneActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         }
 
