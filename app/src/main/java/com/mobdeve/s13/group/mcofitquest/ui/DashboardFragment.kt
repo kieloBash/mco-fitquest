@@ -53,6 +53,7 @@ class DashboardFragment : Fragment() {
     private var _binding : FragmentDashboardBinding? = null
     private val binding get() = _binding!!
     private val workoutList = ArrayList<Workout>()
+    private lateinit var userCurrent : User
 
     /* CONSTANTS */
     private lateinit var STARTINGPLAN : DailyPlan
@@ -255,13 +256,41 @@ class DashboardFragment : Fragment() {
             }
         }
 
+        firebaseRefUser.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val currentUser = Firebase.auth.currentUser?.uid
+                if(currentUser != null){
+                    if(snapshot.exists()){
+                        for(userSnap in snapshot.children){
+                            val userData = userSnap.getValue(User::class.java)
+                            Log.i("Thisuser", userData?.id.toString())
+                            Log.i("Thiscurrentuser", "$currentUser")
+                            if(userData?.id == currentUser){
+                                Log.i("textting", "I AM HERE")
+                                userCurrent = userData
+                            }
+                        }
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
         val gradientBox: ConstraintLayout = view.findViewById(R.id.gradient_box)
         gradientBox.setOnClickListener {
             // Use requireActivity() to get the activity context
             val intent = Intent(requireActivity(), WorkoutActivity::class.java)
-            intent.putExtra(dayKey,"1")
-            intent.putExtra(caloriesKey,"2780")
-            intent.putExtra(minutesKey,"23")
+
+            Log.i("textting", "I AM HERE2")
+
+            intent.putExtra(targetKey,userCurrent.currentPlan?.target)
+            intent.putExtra(dayKey,userCurrent.currentPlan?.day.toString())
+            intent.putExtra(caloriesKey,userCurrent.currentPlan?.totalCalories.toString())
+            intent.putExtra(minutesKey,userCurrent.currentPlan?.totalMinutes.toString())
             startActivity(intent)
         }
 
@@ -269,6 +298,7 @@ class DashboardFragment : Fragment() {
 
     companion object {
         // These are static keys that you can use for the passing data around.
+        const val targetKey : String = "TARGET_KEY"
         const val dayKey : String = "DAY_KEY"
         const val caloriesKey : String = "CALORIES_KEY"
         const val minutesKey : String = "MINUTES_KEY"
