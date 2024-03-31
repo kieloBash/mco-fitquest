@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.mobdeve.s13.group.mcofitquest.R
 import android.widget.ImageView
 import com.mobdeve.s13.group.mcofitquest.models.Program
+import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,8 +59,6 @@ class SingleProgramFragment : Fragment() {
 //        Glide.with(this).load(programList).into(imageView)
         Glide.with(this).load("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2ptcGxwemduOWgzYTV0M3dlOWN0OGZzemVqZXoxcTEwbTY5aGtsYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3HFcLK4IXKoviqvwve/giphy.gif").into(imageView)
 
-<<<<<<< Updated upstream
-=======
         // Generate a random number between 0 and 100
         val randomNumber = Random.nextInt(11)
 
@@ -90,7 +89,6 @@ class SingleProgramFragment : Fragment() {
         } else if (randomNumber < 12) {
             Glide.with(this).load("https://v2.exercisedb.io/image/VtAUC-OKXunYOM").into(imageView)
         }
->>>>>>> Stashed changes
 
         return view
     }
