@@ -28,6 +28,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="My Activities"
+                android:textAlignment="center"
                 android:textColor="#d9d4d4"
                 android:textSize="35sp" />
 
