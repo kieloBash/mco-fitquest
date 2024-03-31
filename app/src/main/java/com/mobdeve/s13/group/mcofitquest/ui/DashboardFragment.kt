@@ -31,6 +31,7 @@ import com.mobdeve.s13.group.mcofitquest.WorkoutActivity
 import com.mobdeve.s13.group.mcofitquest.databinding.FragmentDashboardBinding
 import com.mobdeve.s13.group.mcofitquest.models.Activity
 import com.mobdeve.s13.group.mcofitquest.models.DailyPlan
+import com.mobdeve.s13.group.mcofitquest.models.Program
 import com.mobdeve.s13.group.mcofitquest.models.User
 import com.mobdeve.s13.group.mcofitquest.models.Workout
 
@@ -57,7 +58,6 @@ class DashboardFragment : Fragment() {
 
     /* CONSTANTS */
     private lateinit var STARTINGPLAN : DailyPlan
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -238,13 +238,14 @@ class DashboardFragment : Fragment() {
                 }
         }
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
+        var userDets: User? = null
         sharedViewModel.userDetails.observe(viewLifecycleOwner) { user ->
+            userDets = user
             updateTextView(user)
         }
 
@@ -266,7 +267,7 @@ class DashboardFragment : Fragment() {
                             Log.i("Thisuser", userData?.id.toString())
                             Log.i("Thiscurrentuser", "$currentUser")
                             if(userData?.id == currentUser){
-                                Log.i("textting", "I AM HERE")
+                                Log.i("textting", "I AM HEREsi")
                                 userCurrent = userData
                             }
                         }
@@ -287,22 +288,38 @@ class DashboardFragment : Fragment() {
 
             Log.i("textting", "I AM HERE2")
 
-            intent.putExtra(targetKey,userCurrent.currentPlan?.target)
-            intent.putExtra(dayKey,userCurrent.currentPlan?.day.toString())
-            intent.putExtra(caloriesKey,userCurrent.currentPlan?.totalCalories.toString())
-            intent.putExtra(minutesKey,userCurrent.currentPlan?.totalMinutes.toString())
+            val reps = intArrayOf(10,10,10,10,10,10,10)
+            val data = ArrayList<Program>()
+            for(i in userDets!!.currentPlan?.workouts?.indices!!){
+                data.add(
+                    Program(
+                        userDets!!.currentPlan!!.workouts[i].name!!,
+                        reps[i],
+                        0, userDets!!.currentPlan!!.workouts[i].gifUrl
+                    )
+                )
+            }
+
+            val programsList: ArrayList<Program> = data
+
+            intent.putParcelableArrayListExtra("programListKey", programsList)
+            intent.putExtra(targetKey,userDets!!.currentPlan?.target)
+            intent.putExtra(dayKey,userDets!!.currentPlan?.day.toString())
+            intent.putExtra(caloriesKey,userDets!!.currentPlan?.totalCalories.toString())
+            intent.putExtra(minutesKey,userDets!!.currentPlan?.totalMinutes.toString())
             startActivity(intent)
+
         }
 
     }
 
     companion object {
         // These are static keys that you can use for the passing data around.
+
         const val targetKey : String = "TARGET_KEY"
         const val dayKey : String = "DAY_KEY"
         const val caloriesKey : String = "CALORIES_KEY"
         const val minutesKey : String = "MINUTES_KEY"
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             DashboardFragment().apply {

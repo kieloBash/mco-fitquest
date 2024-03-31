@@ -3,26 +3,33 @@ package com.mobdeve.s13.group.mcofitquest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.mobdeve.s13.group.mcofitquest.databinding.ActivityDashboardBinding
 import com.mobdeve.s13.group.mcofitquest.databinding.ActivityProgramBinding
+import com.mobdeve.s13.group.mcofitquest.models.Program
 import com.mobdeve.s13.group.mcofitquest.ui.SingleProgramFragment
 
 class ProgramActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProgramBinding
     var workoutIndex: Int = 0
-    var WORKOUTS = arrayOf("PUSH-UPS","SIT-UPS")
+    //var WORKOUTS = arrayOf("PUSH-UPS","SIT-UPS")
+    private lateinit var data: ArrayList<Program>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        data = intent.getParcelableArrayListExtra<Program>("programListKey")!!
+
         super.onCreate(savedInstanceState)
         binding = ActivityProgramBinding.inflate(layoutInflater)
         setContentView(binding.root)
         displayFragment()
 
 
+        Log.i("PROGRAMTEST", data?.size.toString())
         binding.programActivityBtnNext.setOnClickListener {
-            if(workoutIndex < WORKOUTS.size - 1){
+            if(workoutIndex < data!!.size - 1){
                 workoutIndex = workoutIndex + 1
                 displayFragment()
             } else {
@@ -41,10 +48,11 @@ class ProgramActivity : AppCompatActivity() {
     }
 
     private fun displayFragment(){
+
         val singleProgramFragment = SingleProgramFragment()
         val bundle = Bundle()
-        bundle.putString("WORKOUT_KEY", WORKOUTS[workoutIndex])
-        bundle.putString("REP_KEY", "12")
+        bundle.putString("WORKOUT_KEY", data?.get(workoutIndex)?.workout)
+        bundle.putString("REP_KEY", data?.get(workoutIndex)?.reps.toString())
         singleProgramFragment.arguments = bundle
         replaceFragment(singleProgramFragment)
     }
