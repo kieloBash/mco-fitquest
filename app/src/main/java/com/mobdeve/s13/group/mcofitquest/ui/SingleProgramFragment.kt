@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.mobdeve.s13.group.mcofitquest.R
+import android.widget.ImageView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,6 +47,8 @@ class SingleProgramFragment : Fragment() {
             tvRep.text = "${it} reps"
         }
 
+        val imageView = view.findViewById<ImageView>(R.id.single_img_workout)
+        Glide.with(this).load("https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif").into(imageView)
 
         return view
     }
