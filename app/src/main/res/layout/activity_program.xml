@@ -38,12 +38,13 @@
 
             <Button
                 android:id="@+id/program_activity_btn_play"
-                android:layout_gravity="center"
                 android:layout_width="40dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
+                android:layout_gravity="center"
                 android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/baseline_play_circle_filled_24"
+                android:visibility="invisible"
                 app:backgroundTint="#d9d4d4" />
 
             <Button
