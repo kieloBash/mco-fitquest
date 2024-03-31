@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s13.group.mcofitquest.models.Activity
 import com.mobdeve.s13.group.mcofitquest.models.Program
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 class ProgramsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     // In our item layout, we need two references -- an ImageView and a TextView. Please note that
@@ -18,7 +19,10 @@ class ProgramsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     // This is our own method that accepts a Character object and sets our views' info accordingly.
     fun bindData(d: Program) {
-        img.setImageResource(d.workoutImageId!!)
+        Glide.with(itemView)
+            .load(d.workoutImageUrl!!)
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(img)
         workout.text = "${d.workout}"
         reps.text = "${d.reps} reps"
 

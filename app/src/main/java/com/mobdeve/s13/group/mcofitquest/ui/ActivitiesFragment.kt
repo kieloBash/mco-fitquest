@@ -56,7 +56,7 @@ class ActivitiesFragment : Fragment() {
         sharedViewModel.userDetails.observe(viewLifecycleOwner, { user ->
             // Use the userDetails here
             for(a in user.history){
-                activitiesFetched.add(Activity(a.day,a.totalCalories,a.totalMinutes,0))
+                activitiesFetched.add(Activity(a.day,a.totalCalories,a.totalMinutes,a.workouts[0].gifUrl))
             }
         })
 

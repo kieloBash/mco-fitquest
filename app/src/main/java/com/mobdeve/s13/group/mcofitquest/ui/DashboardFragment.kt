@@ -81,27 +81,27 @@ class DashboardFragment : Fragment() {
         firebaseRefUser = FirebaseDatabase.getInstance().getReference("user")
 
         // Add listener for data changes
-        firebaseRefWorkout.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // Clear the list before adding new data to avoid duplicates
-                workoutList.clear()
+//        firebaseRefWorkout.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                // Clear the list before adding new data to avoid duplicates
+//                workoutList.clear()
+//
+//                // Process the data
+//                for (workoutSnapshot in dataSnapshot.children) {
+//                    val workout = workoutSnapshot.getValue(Workout::class.java)
+//                    // Do something with the fetched data (e.g., update UI)
+//                        // Update UI with workout data
+//                    workout?.let {
+//                        workoutList.add(it)
+//                    }
+//                }
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                TODO("Not yet implemented")
+//            }
+//        })
 
-                // Process the data
-                for (workoutSnapshot in dataSnapshot.children) {
-                    val workout = workoutSnapshot.getValue(Workout::class.java)
-                    // Do something with the fetched data (e.g., update UI)
-                        // Update UI with workout data
-                    workout?.let {
-                        workoutList.add(it)
-                    }
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
-        
         return binding.root
     }
 
@@ -115,27 +115,27 @@ class DashboardFragment : Fragment() {
 
         if (userDetails != null) {
 
-            val imageUrls = arrayOf(
-                "https://v2.exercisedb.io/image/wXqlsc9kIGx5ne",
-                "https://v2.exercisedb.io/image/3pbblmgUIOylnB",
-                "https://v2.exercisedb.io/image/CrBi8dSwHw1mD9",
-                "https://v2.exercisedb.io/image/5joMBXB0l-BaHL",
-                "https://v2.exercisedb.io/image/xdmcV41ewoMTyF",
-                "https://v2.exercisedb.io/image/yHtTDXXO0XnXMc",
-                "https://v2.exercisedb.io/image/xmsEvA3z4XBuoI",
-                "https://v2.exercisedb.io/image/uFViYVEk7y0zVu",
-                "https://v2.exercisedb.io/image/ln0gZbbPXfWxSV",
-                "https://v2.exercisedb.io/image/NeqVgcFGJvWYXo",
-                "https://v2.exercisedb.io/image/91ppez-6UDKsNU",
-                "https://v2.exercisedb.io/image/VtAUC-OKXunYOM"
-            )
-
-            // Generate a random number between 0 and 10
-            val randomNumber = Random.nextInt(11)
+//            val imageUrls = arrayOf(
+//                "https://v2.exercisedb.io/image/wXqlsc9kIGx5ne",
+//                "https://v2.exercisedb.io/image/3pbblmgUIOylnB",
+//                "https://v2.exercisedb.io/image/CrBi8dSwHw1mD9",
+//                "https://v2.exercisedb.io/image/5joMBXB0l-BaHL",
+//                "https://v2.exercisedb.io/image/xdmcV41ewoMTyF",
+//                "https://v2.exercisedb.io/image/yHtTDXXO0XnXMc",
+//                "https://v2.exercisedb.io/image/xmsEvA3z4XBuoI",
+//                "https://v2.exercisedb.io/image/uFViYVEk7y0zVu",
+//                "https://v2.exercisedb.io/image/ln0gZbbPXfWxSV",
+//                "https://v2.exercisedb.io/image/NeqVgcFGJvWYXo",
+//                "https://v2.exercisedb.io/image/91ppez-6UDKsNU",
+//                "https://v2.exercisedb.io/image/VtAUC-OKXunYOM"
+//            )
+//
+//            // Generate a random number between 0 and 10
+//            val randomNumber = Random.nextInt(11)
 
             // Load the image into the ImageView using Glide
             Glide.with(requireContext())
-                .load(imageUrls[randomNumber])
+                .load(userDetails.currentPlan?.workouts?.get(0)?.gifUrl)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(imgView)
             dayView.text = "Day ${userDetails.currentPlan!!.day}"

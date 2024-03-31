@@ -22,9 +22,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.mobdeve.s13.group.mcofitquest.models.DailyPlan
 import com.mobdeve.s13.group.mcofitquest.models.User
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -54,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
         firebaseRefUser = FirebaseDatabase.getInstance().getReference("user")
         firebaseRefDaily = FirebaseDatabase.getInstance().getReference("dailyplan")
 
-        Log.i("refyser", firebaseRefUser.toString())
+//        Log.i("refyser", firebaseRefUser.toString())
 
         binding.btnGetStarted.setOnClickListener {
             createUserWithEmailAndPassword()
@@ -100,16 +97,60 @@ private fun getCall() {
 //                        }
 
                 if(workout.bodyPart == "chest" && workoutChest.size < 8){
+                    if(workout.name == "archer push up")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/wXqlsc9kIGx5ne"
+                    else if(workout.name == "assisted chest dip (kneeling)")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/4f3FWlwF-AymjN"
+                    else if(workout.name == "assisted seated pectoralis major stretch with stability ball")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/yHtTDXXO0XnXMc"
+                    else if(workout.name == "assisted wide-grip chest dip (kneeling)")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/xmsEvA3z4XBuoI"
+                    else if(workout.name == "band bench press")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/uFViYVEk7y0zVu"
+                    else if(workout.name == "band one arm twisting chest press")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/78De40ONlxYH3F"
+                    else if(workout.name == "barbell bench press")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/ZeZu2Lzu532mpr"
+
                     workoutChest.add(workout)
                 }
                 else if(workout.bodyPart == "shoulders" && workoutShoulders.size < 8){
+                    if(workout.name == "band front lateral raise")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/3pbblmgUIOylnB"
+                    else if(workout.name == "band front raise")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/ryoNe85v3oj3Fh"
+                    else if(workout.name == "band reverse fly")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/zpE3tfnXJ-VdVo"
+                    else if(workout.name == "band shoulder press")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/rOzyx7MjLXfLhq"
+                    else if(workout.name == "band standing rear delt row")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/rUfA49ybTdXx6n"
+                    else if(workout.name == "band twisting overhead press")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/T8o7I54fjXLkJm"
+                    else if(workout.name == "band y-raise")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/GhTl8yUNMzjhWm"
+
                     workoutShoulders.add(workout)
                 }
                 else if(workout.bodyPart == "back" && workoutBack.size < 8){
+                    if(workout.name == "alternate lateral pulldown")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/CrBi8dSwHw1mD9"
+                    else if(workout.name == "archer pull up")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/5joMBXB0l-BaHL"
+                    else if(workout.name == "assisted parallel close grip pull-up")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/xdmcV41ewoMTyF"
+                    else if(workout.name == "assisted pull-up")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/MMh1wgSbnAxJwE"
+                    else if(workout.name == "assisted standing chin-up")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/Zut2EX9u99JhOx"
+                    else if(workout.name == "assisted standing pull-up")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/MmorNpAyhZgs7v"
+                    else if(workout.name == "back extension on exercise ball")
+                        workout.gifUrl = "https://v2.exercisedb.io/image/CQvLXFyQBR2tT6"
                     workoutBack.add(workout)
                 }
 
-                if(workoutShoulders.size == 8 && workoutChest.size == 8 && workoutBack.size == 8){
+                if(workoutShoulders.size == 7 && workoutChest.size == 7 && workoutBack.size == 7){
                     return@forEach
                 }
             }
@@ -119,16 +160,16 @@ private fun getCall() {
             for(i in 1..30){
 
                 if(i == 1 || i == 4 || i == 7 || i == 10 || i == 13 || i == 16 || i == 19 || i == 22 || i == 25 || i == 28){
-                    dayplan.add(DailyPlan("$i", i,2233 + i,60, workoutChest,"Chest", "Muscle Building", false))
+                    dayplan.add(DailyPlan("$i", i,110 + i,8, workoutChest,"Chest", "Muscle Building", false))
                     Log.i("hello$i", workoutChest.toString())
                 }
                 else if(i == 2 || i == 5 || i == 8 || i == 11 || i == 14 || i == 17 || i == 20 || i == 23 || i == 26 || i == 29){
-                    dayplan.add(DailyPlan("$i", i,2233 + i,60, workoutShoulders,"Shoulders", "Muscle Building", false))
+                    dayplan.add(DailyPlan("$i", i,120 + i,11, workoutShoulders,"Shoulders", "Muscle Building", false))
 
                     Log.i("hello$i", workoutShoulders.toString())
                 }
                 else if(i == 3 || i == 6 || i == 9 || i == 12 || i == 15 || i == 18 || i == 21 || i == 24 || i == 27 || i == 30){
-                    dayplan.add(DailyPlan("$i", i,2233 + i,60, workoutBack,"Back", "Muscle Building", false))
+                    dayplan.add(DailyPlan("$i", i,110 + i,9, workoutBack,"Back", "Muscle Building",false))
                     Log.i("hello$i", workoutBack.toString())
                 }
             }
@@ -159,14 +200,12 @@ private fun getCall() {
                     Toast.makeText(baseContext, "User Created!!", Toast.LENGTH_LONG).show()
 
                     getCall()
-
                     firebaseRefDaily.addValueEventListener(object : ValueEventListener {
 
 
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
                             // Clear the list before adding new data to avoid duplicates
                             userDailyPlan.clear()
-                            Log.i("refdaily", firebaseRefDaily.toString())
                             // Process the data
                             for (userDailySnapshot in dataSnapshot.children) {
                                 val dayPlan = userDailySnapshot.getValue(DailyPlan::class.java)

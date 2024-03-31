@@ -4,5 +4,5 @@ class Activity(
     val dayId: Int? = null,
     val totalCalories: Int? = null,
     val totalMinutes: Int? = null,
-    val workoutImageId: Int? = null) {
+    val workoutImageUrl: String? = null) {
 }

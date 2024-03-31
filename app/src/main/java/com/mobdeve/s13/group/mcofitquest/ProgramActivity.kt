@@ -63,6 +63,7 @@ class ProgramActivity : AppCompatActivity() {
             // Pass the received list to the fragment
             Log.i("PROGRAMHELLO", data?.get(workoutIndex)?.workoutImageUrl.toString())
             putString("PROGRAM_URL_KEY", data.get(workoutIndex).workoutImageUrl)
+
         }
 
         singleProgramFragment.arguments = bundle

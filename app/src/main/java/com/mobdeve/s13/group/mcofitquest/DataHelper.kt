@@ -18,7 +18,7 @@ class DataHelper {
                         i+1,
                         caloriesArray[i],
                         minutesArray[i],
-                        0
+                        ""
                     )
                 )
             }

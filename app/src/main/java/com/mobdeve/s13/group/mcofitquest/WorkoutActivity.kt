@@ -54,27 +54,9 @@ class WorkoutActivity : AppCompatActivity() {
 
         tvImage = findViewById(R.id.imageView2)
 
-        val imageUrls = arrayOf(
-            "https://v2.exercisedb.io/image/wXqlsc9kIGx5ne",
-            "https://v2.exercisedb.io/image/3pbblmgUIOylnB",
-            "https://v2.exercisedb.io/image/CrBi8dSwHw1mD9",
-            "https://v2.exercisedb.io/image/5joMBXB0l-BaHL",
-            "https://v2.exercisedb.io/image/xdmcV41ewoMTyF",
-            "https://v2.exercisedb.io/image/yHtTDXXO0XnXMc",
-            "https://v2.exercisedb.io/image/xmsEvA3z4XBuoI",
-            "https://v2.exercisedb.io/image/uFViYVEk7y0zVu",
-            "https://v2.exercisedb.io/image/ln0gZbbPXfWxSV",
-            "https://v2.exercisedb.io/image/NeqVgcFGJvWYXo",
-            "https://v2.exercisedb.io/image/91ppez-6UDKsNU",
-            "https://v2.exercisedb.io/image/VtAUC-OKXunYOM"
-        )
-
-        // Generate a random number between 0 and 10
-        val randomNumber = Random.nextInt(11)
-
         // Load the image into the ImageView using Glide
         Glide.with(this)
-            .load(imageUrls[randomNumber])
+            .load(data?.get(0)?.workoutImageUrl)
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(tvImage)
 
