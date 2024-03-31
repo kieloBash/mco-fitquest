@@ -147,98 +147,7 @@ class DashboardFragment : Fragment() {
         }
     }
 
-    private fun saveData(){
-        val w = arrayOf(
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "3/4 sit-up",
-                gifUrl = "https://v2.exercisedb.io/image/tqvM4EN8Z-P-Dc",
-                bodyPart = "waist"
-            ),
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "45° side bend",
-                gifUrl = "https://v2.exercisedb.io/image/7xKHzqJF1WA3sp",
-                bodyPart = "waist"
-            ),
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "air bike",
-                gifUrl = "https://v2.exercisedb.io/image/raZ6kHmoUgwZ0X",
-                bodyPart = "waist"
-            ),
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "all fours squad stretch",
-                gifUrl = "https://v2.exercisedb.io/image/U--ekfkmbRiabZ",
-                bodyPart = "upper legs"
-            ),
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "alternate heel touchers",
-                gifUrl = "https://v2.exercisedb.io/image/qiN90U4L17nLbb",
-                bodyPart = "waist"
-            ),
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "alternate lateral pulldown",
-                gifUrl = "https://v2.exercisedb.io/image/-Ai-tQnIwdpuJI",
-                bodyPart = "back"
-            ),
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "ankle circles",
-                gifUrl = "https://v2.exercisedb.io/image/Lu3qyQXkRegIHn",
-                bodyPart = "lower legs"
-            ),
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "archer pull up",
-                gifUrl = "https://v2.exercisedb.io/image/XJRKJfhDnQtFvp",
-                bodyPart = "back"
-            ),
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "archer push up",
-                gifUrl = "https://v2.exercisedb.io/image/Twm6fBUfhH2-mZ",
-                bodyPart = "chest"
-            ),
-            Workout(
-                id = firebaseRefWorkout.push().key!!,
-                name = "arm slingers hanging bent knee legs",
-                gifUrl = "https://v2.exercisedb.io/image/LDd9PoJTmqHebF",
-                bodyPart = "waist"
-            )
-        )
-
-        for (workout in w) {
-            // Save the workout to Firebase
-            firebaseRefWorkout.child(firebaseRefWorkout.push().key!!).setValue(workout)
-                .addOnCompleteListener {
-                    Toast.makeText(context, "Data stored successfully", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
-        }
-
-//        DAILY
-        val dailyPlans = arrayOf(
-            DailyPlan(firebaseRefDaily.push().key!!,1,2233,23, arrayListOf(w[0],w[3]),"Full Body", "Muscle Building"),
-            DailyPlan(firebaseRefDaily.push().key!!,2,3322,28, arrayListOf(w[2],w[4],w[0]), "Upper", "Muscle Building"),
-        )
-        saveUserDetails(DailyPlan(firebaseRefDaily.push().key!!,1,2233,23, arrayListOf(w[0],w[3]),"Full Body", "Muscle Building", false))
-        for (daily in dailyPlans) {
-            firebaseRefDaily.child(daily.id!!).setValue(daily)
-                .addOnCompleteListener {
-                    Toast.makeText(context, "Data stored successfully", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
-        }
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
@@ -320,6 +229,7 @@ class DashboardFragment : Fragment() {
         const val dayKey : String = "DAY_KEY"
         const val caloriesKey : String = "CALORIES_KEY"
         const val minutesKey : String = "MINUTES_KEY"
+        const val doneKey : String = "DONE_KEY"
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             DashboardFragment().apply {
