@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.mobdeve.s13.group.mcofitquest.R
 import android.widget.ImageView
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.mobdeve.s13.group.mcofitquest.models.Program
 import kotlin.random.Random
 
@@ -56,40 +57,29 @@ class SingleProgramFragment : Fragment() {
         val imageView = view.findViewById<ImageView>(R.id.single_img_workout)
 
 
-//        Glide.with(this).load(programList).into(imageView)
-        Glide.with(this).load("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2ptcGxwemduOWgzYTV0M3dlOWN0OGZzemVqZXoxcTEwbTY5aGtsYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3HFcLK4IXKoviqvwve/giphy.gif").into(imageView)
+        val imageUrls = arrayOf(
+            "https://v2.exercisedb.io/image/wXqlsc9kIGx5ne",
+            "https://v2.exercisedb.io/image/3pbblmgUIOylnB",
+            "https://v2.exercisedb.io/image/CrBi8dSwHw1mD9",
+            "https://v2.exercisedb.io/image/5joMBXB0l-BaHL",
+            "https://v2.exercisedb.io/image/xdmcV41ewoMTyF",
+            "https://v2.exercisedb.io/image/yHtTDXXO0XnXMc",
+            "https://v2.exercisedb.io/image/xmsEvA3z4XBuoI",
+            "https://v2.exercisedb.io/image/uFViYVEk7y0zVu",
+            "https://v2.exercisedb.io/image/ln0gZbbPXfWxSV",
+            "https://v2.exercisedb.io/image/NeqVgcFGJvWYXo",
+            "https://v2.exercisedb.io/image/91ppez-6UDKsNU",
+            "https://v2.exercisedb.io/image/VtAUC-OKXunYOM"
+        )
 
-        // Generate a random number between 0 and 100
+        // Generate a random number between 0 and 10
         val randomNumber = Random.nextInt(11)
 
-        // Print the random number
-        println("Random Number: $randomNumber")
-        if(randomNumber < 1)
-            Glide.with(this).load("https://v2.exercisedb.io/image/wXqlsc9kIGx5ne").into(imageView)
-        else if(randomNumber < 2)
-            Glide.with(this).load("https://v2.exercisedb.io/image/3pbblmgUIOylnB").into(imageView)
-        else if(randomNumber < 3)
-            Glide.with(this).load("https://v2.exercisedb.io/image/CrBi8dSwHw1mD9").into(imageView)
-        else if (randomNumber < 4) {
-            Glide.with(this).load("https://v2.exercisedb.io/image/5joMBXB0l-BaHL").into(imageView)
-        } else if (randomNumber < 5) {
-            Glide.with(this).load("https://v2.exercisedb.io/image/xdmcV41ewoMTyF").into(imageView)
-        } else if (randomNumber < 6) {
-            Glide.with(this).load("https://v2.exercisedb.io/image/yHtTDXXO0XnXMc").into(imageView)
-        } else if (randomNumber < 7) {
-            Glide.with(this).load("https://v2.exercisedb.io/image/xmsEvA3z4XBuoI").into(imageView)
-        } else if (randomNumber < 8) {
-            Glide.with(this).load("https://v2.exercisedb.io/image/uFViYVEk7y0zVu").into(imageView)
-        } else if (randomNumber < 9) {
-            Glide.with(this).load("https://v2.exercisedb.io/image/ln0gZbbPXfWxSV").into(imageView)
-        } else if (randomNumber < 10) {
-            Glide.with(this).load("https://v2.exercisedb.io/image/NeqVgcFGJvWYXo").into(imageView)
-        } else if (randomNumber < 11) {
-            Glide.with(this).load("https://v2.exercisedb.io/image/91ppez-6UDKsNU").into(imageView)
-        } else if (randomNumber < 12) {
-            Glide.with(this).load("https://v2.exercisedb.io/image/VtAUC-OKXunYOM").into(imageView)
-        }
-
+        // Load the image into the ImageView using Glide
+        Glide.with(this)
+            .load(imageUrls[randomNumber])
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(imageView)
         return view
     }
 

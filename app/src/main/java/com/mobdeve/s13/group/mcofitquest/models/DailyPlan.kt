@@ -8,6 +8,6 @@ data class DailyPlan(
     val workouts: List<Workout> = emptyList(),
     val target : String? = null,
     val goal : String? = null,
-
+    val gifUrl : String? = null,
     val done : Boolean? = null
 )

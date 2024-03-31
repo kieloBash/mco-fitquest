@@ -101,9 +101,7 @@ class DashboardFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         })
-
-        STARTINGPLAN = DailyPlan(firebaseRefDaily.push().key!!,1,2233,23, workoutList,"Full Body", "Muscle Building", false)
-
+        
         return binding.root
     }
 
