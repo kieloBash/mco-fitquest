@@ -56,7 +56,7 @@ class SingleProgramFragment : Fragment() {
 
 
 //        Glide.with(this).load(programList).into(imageView)
-        Glide.with(this).load("https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif").into(imageView)
+        Glide.with(this).load("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2ptcGxwemduOWgzYTV0M3dlOWN0OGZzemVqZXoxcTEwbTY5aGtsYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3HFcLK4IXKoviqvwve/giphy.gif").into(imageView)
 
 
         return view
